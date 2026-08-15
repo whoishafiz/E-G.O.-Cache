@@ -1,9 +1,13 @@
-# E-G.O. Cache — Web Flasher
+# E-G.O. Cache — ESP32 Digital Geocache Logbook (Browser Web Flasher)
 
 **AutoMate Vol.1: Low Power Apps · LPA-02 · Age: 16+**
 
-A configurable digital logbook beacon. First boot launches a setup page —
-name your cache, set your WiFi, pick your theme color. No code editing.
+A configurable ESP32 digital geocache logbook beacon — a DIY electronic
+logbook geocachers find in the field, connect to over Wi-Fi, and sign
+digitally instead of a paper log. First boot launches a setup page: name
+your cache, set your Wi-Fi, pick your theme color. No code editing.
+
+**Buy E-G.O. Cache: [whizworks.gumroad.com/l/qtcjj](https://whizworks.gumroad.com/l/qtcjj)**
 
 This repo hosts the browser-based installer for it: buy it on Gumroad, then
 flash your ESP32, ESP32-S3, or ESP32-C3 board straight from Chrome or Edge
@@ -15,6 +19,16 @@ hardware) — see `manifest.json`'s per-chip builds.
 It exists only to host the files a browser needs to flash a device over USB
 (ESP Web Tools requires them to be fetchable over HTTP/HTTPS) — it's **not**
 an invitation to use the firmware without a purchase. See `LICENSE.txt`.
+
+## Getting started
+
+1. Purchase on Gumroad → instantly receive a license key + the full source
+   code as a zip.
+2. Flash via browser: **[whoishafiz.github.io/E-G.O.-Cache/install.html](https://whoishafiz.github.io/E-G.O.-Cache/install.html)**
+   (Chrome or Edge on desktop) — enter your license key, plug in your
+   ESP32, ESP32-S3, or ESP32-C3 board, click **Connect & Install**.
+3. Power on → connect to the device's Wi-Fi → run the first-boot setup page
+   to name your cache and finish configuration.
 
 ## Status: live
 
