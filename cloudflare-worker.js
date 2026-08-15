@@ -1,5 +1,5 @@
 /**
- * DIY Geocache — license-key relay for install.html
+ * E-G.O. Cache — license-key relay for install.html
  *
  * Gumroad's own license verification endpoint (v2/licenses/verify) needs no
  * secret/API key at all — anyone can call it with a product id + license key

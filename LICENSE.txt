@@ -1,4 +1,4 @@
-DIY Geocache — Web Flasher
+E-G.O. Cache — Web Flasher
 Copyright (c) 2026 Hafizuddin Maiddin (Whiz Works). All rights reserved.
 
 This repository is published only so a browser can fetch the files needed for
@@ -6,11 +6,11 @@ ESP Web Tools to flash a device over USB — that is the sole reason its
 contents are network-reachable. Being reachable does not grant a license.
 
 NO LICENSE IS GRANTED to any of the following, to anyone who has not
-purchased DIY Geocache through its official Gumroad listing:
-  - firmware.bin, bootloader.bin, partition-table.bin — the compiled DIY
-    Geocache firmware. Downloading, flashing, copying, redistributing, or
+purchased E-G.O. Cache through its official Gumroad listing:
+  - firmware.bin, bootloader.bin, partition-table.bin — the compiled E-G.O.
+    Cache firmware. Downloading, flashing, copying, redistributing, or
     otherwise using these files without a valid purchase is not authorized.
-  - The DIY Geocache name, UI, and product design embodied in the firmware.
+  - The E-G.O. Cache name, UI, and product design embodied in the firmware.
 
 Licensed buyers: your Gumroad purchase grants you a personal license to flash
 and run this firmware on hardware you own. See the product's private source

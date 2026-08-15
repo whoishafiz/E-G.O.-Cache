@@ -1,4 +1,4 @@
-# DIY Geocache — Web Flasher
+# E-G.O. Cache — Web Flasher
 
 **AutoMate Vol.1: Low Power Apps · LPA-02 · Age: 16+**
 
@@ -13,31 +13,20 @@ It exists only to host the files a browser needs to flash a device over USB
 (ESP Web Tools requires them to be fetchable over HTTP/HTTPS) — it's **not**
 an invitation to use the firmware without a purchase. See `LICENSE.txt`.
 
-## Status: almost live — 2 manual steps left
+## Status: live
 
-The Gumroad listing exists (`https://whizworks.gumroad.com/l/qtcjj`),
-`cloudflare-worker.js`'s `GUMROAD_PRODUCT_ID` and `install.html`'s
-`#buy-link` are both wired to the real values. This repo
-(`whoishafiz/E-G.O.-Cache`) is public and holds the flasher files.
+Gumroad listing published (`https://whizworks.gumroad.com/l/qtcjj`),
+`cloudflare-worker.js`'s `GUMROAD_PRODUCT_ID`, `install.html`'s `#buy-link`
+and `WORKER_URL` are all wired to real values, GitHub Pages is enabled on
+this repo (`whoishafiz/E-G.O.-Cache`) — live at
+`https://whoishafiz.github.io/E-G.O.-Cache/install.html`. End-to-end license
+verification confirmed working with a real purchased key (2026-08-15).
 
-### Remaining manual steps (Hafiz)
-
-1. **Publish the Gumroad listing.** As of the last `product_id` lookup it
-   reported `"is_published": false` — buyers can't check out until you
-   publish it. Also confirm **"Generate a unique license key per sale"**
-   is enabled under Content settings — the license gate depends on it.
-2. **Deploy the Worker**: Cloudflare dashboard → Workers & Pages → Create →
-   paste in `cloudflare-worker.js` (product_id is already filled in) →
-   Deploy. Copy the resulting `*.workers.dev` URL.
-3. **Paste the deployed Worker URL** into `install.html`'s `WORKER_URL`
-   constant, replacing `PASTE_DEPLOYED_WORKER_URL_HERE`.
-4. **Enable GitHub Pages** on this repo: Settings → Pages → Deploy from
-   branch → `main` / `/ (root)` → Save. Live URL will be
-   `https://whoishafiz.github.io/E-G.O.-Cache/install.html`.
-
-Until all of the above is done, `install.html` will render correctly but the
-license gate will never unlock (`WORKER_URL` points nowhere), which is the
-safe failure mode.
+If you're maintaining this: the Worker lives at
+`https://egocache.hafizmaiddin.workers.dev/`, source in
+`cloudflare-worker.js`. Its `GUMROAD_PRODUCT_ID` (`2LyfxyRFV3Y66g0ftSXQKw==`)
+was looked up from `https://api.gumroad.com/v2/products/qtcjj` — no Gumroad
+API token needed, that endpoint is public.
 
 ## Files in this folder
 
