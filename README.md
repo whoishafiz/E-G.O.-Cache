@@ -13,38 +13,27 @@ It exists only to host the files a browser needs to flash a device over USB
 (ESP Web Tools requires them to be fetchable over HTTP/HTTPS) — it's **not**
 an invitation to use the firmware without a purchase. See `LICENSE.txt`.
 
-## Status: NOT live — setup pending
+## Status: almost live — 2 manual steps left
 
-Everything in this folder is built and ready (manifest, firmware binaries,
-install page, license-gate UI, worker code) but the license-verification path
-is **not wired up yet** because no Gumroad listing exists for this product.
-`install.html`'s `WORKER_URL` and `#buy-link` are placeholders, and
-`cloudflare-worker.js`'s `GUMROAD_PRODUCT_ID` is a placeholder too.
+The Gumroad listing exists (`https://whizworks.gumroad.com/l/qtcjj`),
+`cloudflare-worker.js`'s `GUMROAD_PRODUCT_ID` and `install.html`'s
+`#buy-link` are both wired to the real values. This repo
+(`whoishafiz/E-G.O.-Cache`) is public and holds the flasher files.
 
 ### Remaining manual steps (Hafiz)
 
-1. **Create the Gumroad listing** for DIY Geocache (age 16+; price set on
-   Gumroad, not tracked here). When setting it up, enable **"Generate a
-   unique license key per sale"**
-   under the product's Content settings — the license gate depends on this.
-2. **Get the real `product_id`.** Gumroad's `v2/licenses/verify` endpoint
-   requires `product_id`, not `product_permalink`, for any product created
-   on/after Jan 9 2023 — using the permalink silently fails real license
-   checks while still looking correct against a bogus key. To get the real
-   id: call the verify endpoint once with the permalink and any key —
-   Gumroad's own error response echoes back the required `product_id`.
-   (Same trick already used for Premium Digital Front.)
-3. **Paste the `product_id`** into `cloudflare-worker.js`, replacing
-   `GUMROAD_PRODUCT_ID_PLACEHOLDER`.
-4. **Deploy the Worker**: Cloudflare dashboard → Workers & Pages → Create →
-   paste in `cloudflare-worker.js` → Deploy. Copy the resulting
-   `*.workers.dev` URL.
-5. **Paste the deployed Worker URL** into `install.html`'s `WORKER_URL`
+1. **Publish the Gumroad listing.** As of the last `product_id` lookup it
+   reported `"is_published": false` — buyers can't check out until you
+   publish it. Also confirm **"Generate a unique license key per sale"**
+   is enabled under Content settings — the license gate depends on it.
+2. **Deploy the Worker**: Cloudflare dashboard → Workers & Pages → Create →
+   paste in `cloudflare-worker.js` (product_id is already filled in) →
+   Deploy. Copy the resulting `*.workers.dev` URL.
+3. **Paste the deployed Worker URL** into `install.html`'s `WORKER_URL`
    constant, replacing `PASTE_DEPLOYED_WORKER_URL_HERE`.
-6. **Paste the real Gumroad buy-link** into `install.html`'s `#buy-link`
-   anchor, replacing the `#` placeholder href.
-7. Publish this repo (or this folder) via GitHub Pages, then update the
-   top-level product README with the live `install.html` URL.
+4. **Enable GitHub Pages** on this repo: Settings → Pages → Deploy from
+   branch → `main` / `/ (root)` → Save. Live URL will be
+   `https://whoishafiz.github.io/E-G.O.-Cache/install.html`.
 
 Until all of the above is done, `install.html` will render correctly but the
 license gate will never unlock (`WORKER_URL` points nowhere), which is the

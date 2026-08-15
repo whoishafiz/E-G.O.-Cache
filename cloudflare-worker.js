@@ -16,23 +16,23 @@
  *
  * IMPORTANT: Gumroad's verify endpoint requires product_id, not
  * product_permalink, for any product created on/after Jan 9 2023 (this one
- * will be) — using the permalink silently fails real license checks while
+ * included) — using the permalink silently fails real license checks while
  * *looking* like it works against a bogus key (a bogus key against a
  * permalink still returns a plausible "license does not exist" error,
  * which is what made this look fine in testing until a real key was tried).
- * Get the real product_id from Gumroad's own error message: call the verify
- * endpoint once with the permalink and any key, and it echoes back the
- * required product_id directly.
+ * Get the real product_id (no auth needed) from:
+ *   https://api.gumroad.com/v2/products/<permalink>
+ * — its "id" field is the value below (confirmed working: unauthenticated
+ * GET returns full public product info keyed by permalink).
  *
- * NOTE: no Gumroad listing exists for DIY Geocache yet, so
- * GUMROAD_PRODUCT_ID below is a placeholder. See flasher/README.md for the
- * exact remaining setup steps.
+ * Listing: https://whizworks.gumroad.com/l/qtcjj — as of the id lookup
+ * above, Gumroad reports this product "is_published": false. Publish it
+ * on Gumroad before relying on the buy-link/checkout working for buyers.
  */
 
 // Public info, not a secret — this product's Gumroad product_id (not the
 // permalink; see the IMPORTANT note above for why that distinction matters).
-// PLACEHOLDER — replace once the Gumroad listing exists (see flasher/README.md).
-const GUMROAD_PRODUCT_ID = "GUMROAD_PRODUCT_ID_PLACEHOLDER";
+const GUMROAD_PRODUCT_ID = "2LyfxyRFV3Y66g0ftSXQKw==";
 
 // Only this origin is allowed to call the worker — keeps it from being used
 // as a free generic Gumroad-verify proxy by anyone else. Update if the
