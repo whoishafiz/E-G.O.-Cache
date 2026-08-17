@@ -30,21 +30,6 @@ an invitation to use the firmware without a purchase. See `LICENSE.txt`.
 3. Power on → connect to the device's Wi-Fi → run the first-boot setup page
    to name your cache and finish configuration.
 
-## Status: live
-
-Gumroad listing published (`https://whizworks.gumroad.com/l/qtcjj`),
-`cloudflare-worker.js`'s `GUMROAD_PRODUCT_ID`, `install.html`'s `#buy-link`
-and `WORKER_URL` are all wired to real values, GitHub Pages is enabled on
-this repo (`whoishafiz/E-G.O.-Cache`) — live at
-`https://whoishafiz.github.io/E-G.O.-Cache/install.html`. End-to-end license
-verification confirmed working with a real purchased key (2026-08-15).
-
-If you're maintaining this: the Worker lives at
-`https://egocache.hafizmaiddin.workers.dev/`, source in
-`cloudflare-worker.js`. Its `GUMROAD_PRODUCT_ID` (`2LyfxyRFV3Y66g0ftSXQKw==`)
-was looked up from `https://api.gumroad.com/v2/products/qtcjj` — no Gumroad
-API token needed, that endpoint is public.
-
 ## Files in this folder
 
 | File | Purpose |
